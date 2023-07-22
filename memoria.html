@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Memoria</title>
+
+    <style>
+        img{
+            margin: 5px;
+            padding: 0px;
+            border: 1px solid white;
+            width: 10%;
+        }
+        img:hover{
+            border: 1px solid orange;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+                //pos 0 1 2 3 4 5 6 7 8 9 10 11
+        var cartas = [1,1,3,5,7,2,3,7,2,4,4,5]
+        var pos1;
+        var pos2;
+        var cont=0;
+        function ver_carta(pos){
+            document.getElementById("carta"+pos).src="./carta"+cartas[pos]+".jpg";
+            cont++;
+            if(cont==1){
+                pos1=pos;
+            }
+            if(cont==2){
+                pos2=pos;
+            }
+            if(cont==2){
+                if(cartas[pos1]==cartas[pos2]){
+                    //alert("Son iguales");
+                }
+                else{
+                    //alert("No son iguales");
+                    setTimeout(function(){
+                        document.getElementById("carta"+pos1).src="./volteado.png";
+                        document.getElementById("carta"+pos2).src="./volteado.png";
+                    }, 500);
+                    //un segundo es 1000
+                }
+                cont=0;
+            }            
+        }
+    </script>
+</head>
+<body>
+    
+    <img src="./volteado.png" id="carta0" onclick="ver_carta(0)">
+    <img src="./volteado.png" id="carta1" onclick="ver_carta(1)">
+    <img src="./volteado.png" id="carta2" onclick="ver_carta(2)">
+    <img src="./volteado.png" id="carta3" onclick="ver_carta(3)">
+    <img src="./volteado.png" id="carta4" onclick="ver_carta(4)">
+    <img src="./volteado.png" id="carta5" onclick="ver_carta(5)">
+    <img src="./volteado.png" id="carta6" onclick="ver_carta(6)">
+    <img src="./volteado.png" id="carta7" onclick="ver_carta(7)">
+    <img src="./volteado.png" id="carta8" onclick="ver_carta(8)">
+    <img src="./volteado.png" id="carta9" onclick="ver_carta(9)">
+    <img src="./volteado.png" id="carta10" onclick="ver_carta(10)">
+    <img src="./volteado.png" id="carta11" onclick="ver_carta(11)">
+   
+</body>
+</html>
